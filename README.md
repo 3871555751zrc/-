@@ -1,7 +1,7 @@
 # -
 css语法小总结：
 全屏的css其中一种写法如下：
-<!DOCTYPE html>
+```<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -22,3 +22,4 @@ css语法小总结：
 		
 	</body>
 </html>
+```
