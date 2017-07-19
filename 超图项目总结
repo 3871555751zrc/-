@@ -1,2 +1,8 @@
 1、矢量要素（SuperMap.Feature.Vector）由 具有空间信息的Geometry 和 具有非空间信息的attributes属性，以及用来定义矢量要素的style属性构成。
 矢量要素（SuperMap.Feature.Vector）可以构成矢量图层SuperMap.Layer.Vector，具体参考API文档
+
+
+跨域问题解决方案：
+https://www.zhihu.com/question/19618769
+http://www.cnblogs.com/sunxucool/p/3433992.html 
+http://www.jb51.net/article/81420.htm 
