@@ -1,6 +1,6 @@
 ```
 
-1：题目基本信息
+#1：题目基本信息
 create table question(
 q_id int,
 q_typeid int,
@@ -10,7 +10,7 @@ q_datestr text,
 primary key(q_id)
 )
 
-2:选项详情
+#2:选项详情
 create table q_options(
 
 q_id int,//标志是哪一个题目！
@@ -22,7 +22,7 @@ primary key(q_id)
 )
 
 
-3：答案详情
+#3：答案详情
 
 create table q_result(
 q_id int,
@@ -32,7 +32,7 @@ primary key(q_id)
 )
 
 
-4:题目类型详情
+#4:题目类型详情
 
 create table q_type(
 q_typeid int,
@@ -43,7 +43,7 @@ primary key(q_typeid)
 
 
 
-插入q_baseinf的信息
+#插入q_baseinf的信息
 insert into q_baseinf
 values(1,1,'День был ясным, это соответствовало ___ ка
 
@@ -188,7 +188,7 @@ ___ с девяти утра до семи вечера.','A','2012'),
 
 
 
-插入q_options的：
+#插入q_options的：
 
 insert into q_options
 values
@@ -277,7 +277,7 @@ values
 
 
 
-插入q_result
+#插入q_result
 insert into q_result(q_id,interpretation,q_analysis) values
 (1,'天气晴朗，这符合我们之中每个人的心情。','соответствовать 
 
@@ -463,7 +463,7 @@ C'),
 
 
 
-插入q_type的表
+#插入q_type的表
 insert into q_type(q_type,q_typeid) values
 ('词汇支配',1),
 ('词汇辨析',2),
