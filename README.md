@@ -151,3 +151,9 @@ alter table 表名 add 字段名  字段类型
 给表加主键：
 alter table 表名 add primary key(字段名)
 ```
+给表增加外键：
+```
+alter table 表名 add foreign key(字段名) references 参考表(外键的字段名)
+alter table q_useranalysis add foreign key(q_id) references q_baseinf(q_id);//一个实例
+```
+ 
