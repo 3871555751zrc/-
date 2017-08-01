@@ -156,4 +156,18 @@ alter table 表名 add primary key(字段名)
 alter table 表名 add foreign key(字段名) references 参考表(外键的字段名)
 alter table q_useranalysis add foreign key(q_id) references q_baseinf(q_id);//一个实例
 ```
- 
+```
+在创建表的时候创建主键和外键
+CREATE TABLE Skills (
+   Id INTEGER PRIMARY KEY,
+   SkillName CHAR(40),
+   Description CHAR(100) 
+);
+CREATE TABLE EmployeeSkills (
+   EmployeeID INTEGER NOT NULL,
+   SkillID INTEGER NOT NULL,
+   SkillLevel INTEGER NOT NULL,
+   PRIMARY KEY( EmployeeID ),
+   FOREIGN KEY (SkillID) REFERENCES Skills ( Id )
+);
+```
