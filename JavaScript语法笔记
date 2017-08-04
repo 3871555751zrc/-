@@ -1,0 +1,16 @@
+JavaScript语法中  call 的用法，其实每个函数都有call这个方法，call这个方法真正的作用是用来扩充函数赖以运行的作用域的，apply方法和call差不多，区别仅仅
+在于接收参数的方式不同而已，对于call()而言，第一个参数this值并没有变化，变化的是其余的参数都是直接传递给函数的，换句话说在使用call()的时候，传递给call()
+的参数必须逐个列举出来，具体再看书吧。
+```
+var color = "red";
+var o = {
+color:"blue"
+}
+var getColor = function()
+{
+return this.color;
+}
+console.log("执行getColor()方法"+getColor());
+
+console.log("执行getColor.call(o)"+getColor.call(o));
+```
