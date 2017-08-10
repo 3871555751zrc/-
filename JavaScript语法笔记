@@ -12,3 +12,45 @@ return this.color;
 console.log("执行getColor()方法"+getColor());
 
 console.log("执行getColor.call(o)"+getColor.call(o));```
+
+
+作用域安全的构造函数：
+function Person(name,age,job)
+{
+this.name = name;
+this.age = age;
+this.job = job;
+}
+
+在这里把Person作为构造函数来用，var person1 = new Person("zrc",12,"前端开发工程师");
+在new的过程中实际发生的是执行流进入Person函数里面进行代码的执行，如下：
+function Person(name,age,job)
+{
+//隐含创建一个 空对象{}
+//将构造函数的作用域赋值给新对象，于是隐含this指向这个空对象，var this = {};
+this.name = name;
+this.age = age;
+this.job = job;
+//隐含返回这个this对象 return this;
+}
+函数new了之后返回的对象就赋值给了person1 ，所以person1就是一个对象了；
+
+
+在这里设计的构造函数并不安全，比如说，当用户忘记使用new操作符的时候，例如 var person2 = Person("tt",21,"gis设计师");这个时候
+由于没有new这个关键字，Person会被当成一个普通的函数执行了，由于在全局作用域下执行，那么它里面的this就是window，并且也不会返回对象，他只是
+修改或者给window增加一些属性。这个this是在调用的时候才确定的，属于运行时绑定，谁调用它，this就是指的是谁，在全局作用域下就是window，
+所以这没有得到我们想要的效果，更糟糕的是，可能修改了window一些属性值，造成不可预测的灾难，所以这是极其不安全的行为，为此我们可以改变一下构造函数
+的设计，确保安全，改造如下：
+function Person(name,age,job)
+{
+if(this instanceof Person)
+{
+this.name = name;
+this.age = age;
+this.job = job;
+}
+else {
+return new Person(name,age,job);
+}
+}
+
