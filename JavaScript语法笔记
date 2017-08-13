@@ -74,3 +74,4 @@ var num =10;
 alert(num.toString(2))//“1010”
 ```
 
+函数String()可以给任何值转型成字符串，特别的  对于 String(null) ,String(undefined) ,分别产生 “null”和 “undefined”
