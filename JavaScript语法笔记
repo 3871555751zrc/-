@@ -64,3 +64,13 @@ var num2 = parseInt("11",8)//9
 ```
 parseFloat()和parseInt()方法差不多，主要区别是 parseFloat（）方法只能解析十进制数 所以没有第二个参数 
 其他的用的比较少 到时候需要再说！！！！
+
+
+
+转换成字符串  除了 undefined 和 null 这两个值没有toString()方法之外 其他的都有
+特别的 数值调用 toString()可以给这个函数传递一个参数，指定把数值转换成几进制？
+```
+var num =10;
+alert(num.toString(2))//“1010”
+```
+
