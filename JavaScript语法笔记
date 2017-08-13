@@ -75,3 +75,107 @@ alert(num.toString(2))//“1010”
 ```
 
 函数String()可以给任何值转型成字符串，特别的  对于 String(null) ,String(undefined) ,分别产生 “null”和 “undefined”
+
+
+
+javascript 字符串：
+String 类型是字符串的对象包装类型，可以像下面这样使用String构造函数来创建
+var stringObj = new String("hello world");
+String 类型的每个实例都有 length属性，eg：var stringValue = "hello world";alert(stringValue.length);
+
+
+字符方法：charAt()和charCodeAt()。可以得出给定位置的字符串
+eg: var stringValue = "hello world";
+    alert(stringValue.charAt(1));//“e”
+    alert(stringValue.charCodeAt(2));//"97"
+    
+    字符串的操作方法：
+    字符串相加：1：使用“+”  2、使用concat方法    
+    eg:var stringValue = "hello";
+       var result = "";
+           result = stringValue.concat(" world");
+           console.log(result);//"hello world"
+           console.log(stringValue);//"hello" 注意到 使用了concat 对原来的字符串没有影响
+    其实concat这个方法可以有多个参数的
+    
+    
+    获取子串的方法： 1、slice()  2、substring()  3、substr()
+   其中slice()和substring方法的第一个参数是子串的起点位置，第二个参数表示子字符串最后面的那个字符的后面一个位置，也就是不包括这个位置的字符串
+   substr()方法的第一个参数和上面的一样  不同的就是 第二个参数表示 子字符串的长度
+   如果不指定第二个参数 那么就表示从第一个参数的位置取完后面的字符串；
+   这些方法和concat方法一样 不会影响到原始字符串
+   当然还有一些区别  比较详细 详情请看124页  《JavaScript高级程序设计》
+   
+   
+   
+    
+    字符串的位置方法：
+    有两个方法：indexOf（） 和 lastIndexOf()  
+       indexOf()从开头往后找，lastIndexOf()从后往前找  找到了就返回位置  找不到就返回-1；
+       这两个方法  还可以有第二个参数 用来指定从哪个位置开始搜索
+       
+     trim()方法，这个方法会创建一个字符串的副本 并把字符串的前后空格删掉
+     
+     
+     字符串大小写方法  ：这个很简单 
+     
+     
+     字符串模式匹配方法：
+     
+       
+       
+    
+       
+       
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
