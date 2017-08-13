@@ -56,10 +56,11 @@ return new Person(name,age,job);
 
 
 javascript的数值转换函数，包括3种：1、Number()  2、parseInt()  3、parseFloat()
-Number()方法可以接受任何的类型，而parseInt() 和 parseFloat() 只能接受字符串类型的参数，这个参数是第一个参数，第二个参数是指定这个
+Number()方法可以接受任何的类型，而parseInt()只能接受字符串类型的参数，这个参数是第一个参数，第二个参数是指定这个
 字符串里面的数字是什么进制的 比如说 2  表示二进制  8 表示 八进制等等   但是 需要记住的是  这些函数转换出来的都是十进制数哦！！！
 ```
 var num1 = parseInt("100",2)//4
 var num2 = parseInt("11",8)//9
 ```
+parseFloat()和parseInt()方法差不多，主要区别是 parseFloat（）方法只能解析十进制数 所以没有第二个参数 
 其他的用的比较少 到时候需要再说！！！！
