@@ -36,3 +36,8 @@ for(i=0;i<a.length-1;i++)//一直比较到倒数第二个数
 }//k始终是保存最小的值的对应的数组下标
       
 ```
+
+```
+可以让“I am a student”  变成  “I Am A Student”
+String.prototype.toJadenCase = function(){return this.split(" ").map(function(word){return word.charAt(0).toUpperCase()+word.slice(1);}).join(" ")}
+```
