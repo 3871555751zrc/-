@@ -46,3 +46,14 @@ String.prototype.toJadenCase = function () {
  return this.replace(/(^|\s)[a-z]/g,function(x){return x.toUpperCase();})
 };
 ```
+
+处理1+1/4+1/7+1/10....的问题  可以把1看成1/1然后 对每一个除号的数 单独求出它的规律 出来 再用一般的求和方法 就可以得到了。思路清晰  总结：当自己的思路
+不清楚的时候 不妨换个思路 一切可能海阔天空！
+function SeriesSum(n)
+{
+ for(var i=0,s=0;i<n;i++)
+ {
+ s+=1/(i*3+1);
+ }
+ return s.toFixed(2);
+}
