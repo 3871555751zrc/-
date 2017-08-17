@@ -125,7 +125,9 @@ eg: var stringValue = "hello world";
        
        
        注意：数组转换成字符串的时候用join（）方法  字符串转换成数组的时候用 split()
-    
+    1==true;//这个会返回true 主要原因是 true会转换为1 所以  返回true 
+    所以 2==true 以及其他的等于 true就会返回false
+    在==时 转换都是 往Number方向转换的，而在if（）语句的时候是往Boolean方向转换的，所以有时候 if(2) 2可以转换为true哦！！！
        
        
     
