@@ -57,3 +57,34 @@ function SeriesSum(n)
  }
  return s.toFixed(2);
 }
+
+
+取url字符串
+function getQuery(url)
+{
+var obj ={};var urlQ = url.split("?")[1]
+var queryArr = urlQ.split("&");console.log(queryArr);
+queryArr.forEach(function(item,index){
+ var key=item.split("=")[0];
+ var value=item.split("=")[1];
+ if(value==undefined)
+ value="";
+ if(obj.hasOwnProperty(key))
+ {
+ if(! (obj[key] instanceof Array))
+ {
+ var preValue = obj[key];
+ obj[key] = [];
+ obj[key].push(preValue);
+ obj[key].push(value);
+ }
+ else{
+ obj[key] = value;
+ }
+ }
+ else{
+ obj[key] = value;
+ }
+});
+return obj;
+}
