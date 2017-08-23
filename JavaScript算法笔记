@@ -88,3 +88,32 @@ queryArr.forEach(function(item,index){
 });
 return obj;
 }
+
+
+
+深拷贝：
+/**
+思路：首先判断传入进来的是不是引用类型，用typeof来判断，然后判断是数组还是对象，使用instanceof来判断，再次看看浏览器是否支持window.JSON对象，可以
+使用它的stringify方法把传入的值进行序列化，然后用parse转换回来
+
+**/
+function deepCopy(obj)
+{
+if(typeof obj !=="object")
+{
+return;
+}
+var newObj = obj instanceof Array ? [] : {};
+if(window.JSON)
+{
+var str = JSON.stringify(obj);
+newObj = JSON.parse(str);
+}
+else{
+for(var key in obj)
+{
+newObj = typeof obj[key] ==="object"?deepCopy(obj[key]):obj[key];
+}
+}
+return newObj;
+}
