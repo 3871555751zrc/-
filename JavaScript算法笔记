@@ -117,3 +117,86 @@ newObj = typeof obj[key] ==="object"?deepCopy(obj[key]):obj[key];
 }
 return newObj;
 }
+
+
+
+
+JavaScript的跨浏览器事件绑定和阻止冒泡，阻止默认事件处理程序，以及事件委托都在这里了！
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title>你妹</title>
+</head>
+<body>
+<div id="box">
+ <ul>
+   <li id="list1">点击我弹出你好</li>
+   <li id="list2">点击我弹出你妹</li>
+   <li id="list3">停止事件冒泡</li>
+   <li><a id="list4" href="http://baidu.com">取消默认行为</a></li>
+ </ul>
+</div>
+<script>
+eventUtil = {
+addHandler:function(elem,type,handler)
+{
+if(elem.addEventListener)
+{
+elem.addEventListener(type,handler,false);
+}
+else if(elem.attachEvent)
+{
+elem.attachEvent("on"+type,handler);
+}
+else{
+elem["on"+type]=handler;
+}
+},
+removeHandler:function(elem,handler)
+{
+if(elem.removeEventListener)
+{
+elem.removeEventListener(type,handler,false);
+}
+else if(elem.detachEvent)
+{
+elem.detachEvent("on"+type,handler);
+}
+else{
+elem["on"+type]=null;
+}
+}
+
+}//封装了跨浏览器的事件处理函数
+
+
+var boxElem = document.getElementById("box");
+eventUtil.addHandler(boxElem,"click",function(e){
+if(e.target.id==="list1")
+{
+alert("你好");
+}
+else if(e.target.id==="list2")
+{
+alert("你妹");
+}
+});//事件冒泡得到一个事件托管
+eventUtil.addHandler(document.getElementById("box"),"click",function(){alert("这个是外层的box！");});//事件冒泡
+eventUtil.addHandler(document.getElementById("list3"),"click",function(e){e.stopPropagation();alert(e.target.innerHTML);});//使用e.stopPropagation()方法阻止冒泡
+eventUtil.addHandler(document.getElementById("list4"),"click",function(e){e.preventDefault();alert("我阻止了链接跳转到其他的页面");});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
