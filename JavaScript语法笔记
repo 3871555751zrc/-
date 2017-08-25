@@ -133,7 +133,25 @@ eg: var stringValue = "hello world";
     
     
     
-    
+    setInterval 和 setTimeout的注意事项
+    首先这两个方法都会返回一个id值，我们可以根据这个id值来传入clearInterval 或者 clearTimeout 方法来清除掉定时器
+    代码如下：
+    function sayHello()
+  {   var i = 0;
+     return {
+	 timer:function(){
+	 this.timerId = 
+	 setInterval(function(){
+	 console.log(i++);
+	 },1000);
+	 },
+	 timerId:"",
+	 cancel:function(){
+	 
+	 clearInterval(this.timerId);//注意这里只能清除this.timerId  而不能使用this.timer,因为这this.timer返回的是一个函数的字面量表达式
+	 }
+	 }
+  }
     
     
     
