@@ -30,3 +30,13 @@ margin:0 auto;
 
 
 百分比是相对于父元素的padding和width之后  （非IE浏览器的时候）
+
+水平居中的总结：
+对于行内元素 :在父容器使用text-align:center;
+对于块状元素:并且块状元素是固定宽度的，可以在块状元素里面设置 margin:0(事实上这个是上下margin，可以是任意值) atuo
+对于块状元素，但是不定宽，这时候有3种方法，
+1： 可以引入table标签作为其父元素，对table进行 margin:0(事实上这个是上下margin，可以是任意值) atuo 即可
+为什么选择方法一加入table标签? 是利用table标签的长度自适应性---即不定义其长度也不默认父元素body的长度
+（table其长度根据其内文本长度决定），因此可以看做一个定宽度块元素，然后再利用定宽度块状居中的margin的方法，使其水平居中。
+2：把块级元素设置display:inline;,然后设置父元素的text-align:center;
+3：通过给父元素设置 float，然后给父元素设置 position:relative 和 left:50%，子元素设置 position:relative 和 left: -50% 来实现水平居中。
