@@ -156,13 +156,89 @@ eg: var stringValue = "hello world";
     
     
     
+       什么是json？
+JSON就是一种表示结构化数据的格式，他只是一种数据格式而不是一门编程语言，并且目前这种数据的格式已经成为数据交换的标准。json语法可以表示 简单值，对象，数组三种类型。
+最简单的json数据格式就是简单值 如“helloworld” 5 等等；
+表示对象的时候，就是和JavaScript的对象字面量长的很像，就是键值对那个键要加双影号，以及json没有变量的概念，后面也没有分号，因为他不是
+一个JavaScript语句
+表示数组的时候几乎和JavaScript的数组一模一样，就是没有变量和后面那个分号而已
+    eg:[{"name":"zrc",age:21,school:{"name":csu,"location":"changsha"}},{后面的差不多},{}]
     
     
+    解析和序列化：
+  ECMA5标准定义了全局对象JSON，这个JSON拥有两个方法，分别是stringify和parse，分别是把一个JavaScript序列化成一个字符串，把一个字符串解析成一个JavaScript对象。注意在序列化JavaScript对象中，所有的原型成员以及函数全部被忽略掉。，值为undefined也会被忽略掉。！
     
+    var obj = {
+name:"zhengrucong",
+age:21,
+wife:{
+name:"xm",
+age:21,
+son:[{name:"zhengdada",age:2},{name:"zhengyeye",age:1}]
+}
+}
+
+var jsonStr = JSON.stringify(obj);
+console.log(jsonStr);
+
+
+结果："{"name":"zhengrucong","age":21,"wife":{"name":"xm","age":21,"son":[{"name":"zhengdada","age":2},{"name":"zhengyeye","age":1}]}}"
+
+把var jsonStr = JSON.stringify(obj);换成：var jsonStr = JSON.stringify(obj,function(key,value){
+if(key =="name")
+{
+return "yeyede"
+}
+else return value;
+});
+   结果，所有的name都变成了yeyede,这个函数叫做过滤函数。 
+    "{"name":"yeyede","age":21,"wife":{"name":"yeyede","age":21,"son":[{"name":"yeyede","age":2},{"name":"yeyede","age":1}]}}"
     
+    加第三个参数：如果是数字就是表示空格数，如果是字符串就是以这个字符串作为分割符。	
     
-    
-    
+    var jsonStr = JSON.stringify(obj,null,"<----->");
+    {
+<----->"name": "zhengrucong",
+<----->"age": 21,
+<----->"wife": {
+<-----><----->"name": "xm",
+<-----><----->"age": 21,
+<-----><----->"son": [
+<-----><-----><----->{
+<-----><-----><-----><----->"name": "zhengdada",
+<-----><-----><-----><----->"age": 2
+<-----><-----><----->},
+<-----><-----><----->{
+<-----><-----><-----><----->"name": "zhengyeye",
+<-----><-----><-----><----->"age": 1
+<-----><-----><----->}
+<-----><----->]
+<----->}
+}
+
+var jsonStr = JSON.stringify(obj,null,4);
+console.log(jsonStr);
+VM100:12 {
+    "name": "zhengrucong",
+    "age": 21,
+    "wife": {
+        "name": "xm",
+        "age": 21,
+        "son": [
+            {
+                "name": "zhengdada",
+                "age": 2
+            },
+            {
+                "name": "zhengyeye",
+                "age": 1
+            }
+        ]
+    }
+}
+
+
+parse方法也和stringify方法差不多，就不在这里啰嗦了。
     
     
     
