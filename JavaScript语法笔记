@@ -242,7 +242,27 @@ parse方法也和stringify方法差不多，就不在这里啰嗦了。
     
     
     
+ 关于JavaScript数组的forEach用法的坑。
+ var foo = function(str)
+{
+	 var a = str.split("-");
+	 a.forEach(function(item,index){
+           item = item.charAt(0).toUpperCase()+item.slice(1);console.log(item);
+	 });
+	 return a.join("");
+}
+    这种情况下用给值item赋值，根本不能够改变原来的数组的值，因为这里是一个回调函数，每次传进来的只是一个临时变量而已，要改变，可以使用a[index]或者
+    使用另外一种遍历方法map
     
+    
+   var foo = function(str)
+{
+	 var a = str.split("-");
+	 a.forEach(function(item,index){
+        a[index] = item.charAt(0).toUpperCase()+item.slice(1);console.log(item);
+	 });
+	 return a.join("");
+} 
     
     
     
