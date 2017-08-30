@@ -40,3 +40,10 @@ margin:0 auto;
 （table其长度根据其内文本长度决定），因此可以看做一个定宽度块元素，然后再利用定宽度块状居中的margin的方法，使其水平居中。
 2：把块级元素设置display:inline;,然后设置父元素的text-align:center;
 3：通过给父元素设置 float，然后给父元素设置 position:relative 和 left:50%，子元素设置 position:relative 和 left: -50% 来实现水平居中。
+
+
+
+
+关于css盒子模型中width和height以及百分比，background-color。
+首先w3标准的盒子模型，width和height的数值等于盒子的content的值。子类元素的百分比是针对于父类元素的width和height分别乘以百分比得到的，
+background-color的背景色是content+padding+border的！！！！
