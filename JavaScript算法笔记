@@ -190,8 +190,62 @@ eventUtil.addHandler(document.getElementById("list4"),"click",function(e){e.prev
 
 
 
+给定一个对象，输出每个层次的键：在这里要注意 使用concat方法拷贝数组的时候并没有把属性拷贝过去，这个时候就要注意了哈
+function foo(obj,arr,layer)
+{
+	var b = [];
+	    b.currLayer = layer;
+	var objArr =[];
+	for(var key in obj)
+	{
+		b.push(key);
+		if(obj[key] instanceof Object)
+		{
+			objArr.push(obj[key]);
+		}
+	}
+	var flag = false;
+	for(var j=0;j<arr.length;j++)
+	{
+		if(arr[j].currLayer===b.currLayer)
+		{
+			arr[j] = arr[j].concat(b);
+			arr[j].currLayer = b.currLayer;
+			flag = true;
+			console.log(arr[j]);
+		}
+	}
+	if(!flag)
+	arr.push(b);
 
-
+   for(var j=0;j<objArr.length;j++)
+   {
+   	foo(objArr[j],arr,layer+1);
+   }
+    return arr;
+}
+      	
+      	
+      	var obj = {
+      		a:{
+      			b:{
+      				c:{
+      					d:1
+      				}
+      			}
+      		},
+      		e:{
+      			f:{
+      				g:1
+      			}
+      		},
+      		h:1,
+      		i:{
+      			j:{
+      				k:12
+      			}
+      		}
+      	}
 
 
 
