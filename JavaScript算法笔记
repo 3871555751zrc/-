@@ -249,6 +249,36 @@ function foo(obj,arr,layer)
 
 
 
+字符串 str.replace(正则表达式，function(item,p1,p1...,offset){return item进行一系列操作})；注意在这里，正则表达式只会返回替换后的值，
+并不会改变原来的str值。举个例子
+function  titleCase(str1,str2)
+        {
+        	var strResult;
+        	if(!str2)
+        	{
+        	  str1 =  str1.toLowerCase();
+        	strResult =  str1.replace(/\b\w+\b/g,function(item){
+        	  	return item.charAt(0).toUpperCase()+item.slice(1).toLowerCase();
+        	  });
+        	}
+        	else{
+        	var str2Arr = str2.split(" ");
+             strResult = str1.replace(/\b\w+\b/g,function(item,offset){
+            	var flag = true;
+            	for(var i=0;i<str2Arr.length;i++)
+            	{
+            		if(item.toLowerCase() === str2Arr[i].toLowerCase() && offset!==0)
+            		{
+            			flag=false;
+            			return item.toLocaleLowerCase();
+            		}
+            	}
+            	if(flag)
+            	return item.charAt(0).toUpperCase()+item.slice(1).toLowerCase();
+            });
+           }
+        	return strResult;
+        }
 
 
 
