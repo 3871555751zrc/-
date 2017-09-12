@@ -282,5 +282,34 @@ function  titleCase(str1,str2)
 
 
 
+function shellSort(arr){
+//	//首先声明需要的变量
+//	var i,j,m,d,increament;
+//	increament = arr.length/3;//初始间隔是数组长度除以3
+//	for(var m=increament;m>=1;m--)//外层循环控制希尔排序宏观次数，m表示间隔大小，从最大到1的过程就应该经历了宏观的次数
+//	{
+//		d = m;//d表示当前希尔排序的间隔
+//		for(i=d;i<arr.length;i++){
+//			if(arr[i]<arr[i-d])
+//			{
+//				temp = arr[i];//找到了比他大的数，保存到临时变量里面
+//				j = i;//j是用来查找需要移动的数组，先指向i
+//				do{
+//					arr[j] = arr[j-d];//把j-d那个位置的数移动到这里
+//					j = j-d;//这个时候j指向了j-d这个位置
+//					if(j-d<0)
+//					{
+//						break;
+//					}
+//				}while(j>0 && temp<arr[j-d])
+//				arr[j] = temp;
+//			}
+//		}
+//	
+//	}
+//	return arr;
+//	
+//}
+
 
 
